@@ -3,7 +3,7 @@ import Form from "./components/createAccount";
 import LoginPage from "./components/login";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
 
 
 // Your web app's Firebase configuration
@@ -29,6 +29,7 @@ const addUser = async () => {
       name: "John Doe",
       email: "john@example.com",
       age: 30,
+	  timestamp: Timestamp.now() 
     };
     const usersCollection = collection(db, "users");
     const docRef = await addDoc(usersCollection, user);
